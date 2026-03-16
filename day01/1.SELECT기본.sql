@@ -1,3 +1,5 @@
+-- Set ad a Default와 동일 기능
+
 use madangdb;
 
 -- 한글이 나눔고딕으로 출력됨
