@@ -146,7 +146,17 @@ SELECT count(*) "총 판매수"
 -- 고객별로 주문한 도서의 총 수량과 총 판매액을 조회하시오
 SELECT o.custid
 	 , count(*) AS "판매 수량"
-	 , sum(o.saleprice)
+	 , sum(o.saleprice) "총 판매액"
   FROM Orders o
  GROUP BY o.custid;
+
+-- 가격이 8000원 이상인 도서를 구매한 고객에 고객별 주문도서, 총 수량
+-- 조회하시오, 단 두 권 이상 구매한 고객만 조회합니다.
+SELECT o.custid, count(*) "도서수량"
+  FROM Orders o
+ WHERE o.saleprice >= 8000
+ GROUP BY o.custid
+HAVING count(*) >= 2
+ ORDER BY o.custid DESC;
+
 

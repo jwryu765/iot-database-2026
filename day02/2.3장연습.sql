@@ -43,3 +43,18 @@ SELECT *
  WHERE orderdate BETWEEN str_to_date('2024-07-04', '%Y-%m-%d')
    AND str_to_date('2024-07-07', '%Y-%m-%d');
 
+-- 2014년 7월 4일~ 7월 7일 사이 주문받은 도서를 제외한 도서의 주문번호
+SELECT *
+  FROM Orders o
+ WHERE orderdate NOT BETWEEN '2024-07-04'
+   AND '2024-07-07';
+
+-- 성이 '김'씨인 고객의 이름과 주소
+SELECT *
+  FROM Customer c
+ WHERE c.name LIKE '김%';
+
+-- 고객중 김으로 시작하고 아로 끝나는 고객의 이름과 주소
+SELECT c.name, c.address
+  FROM Customer c
+ WHERE c.name LIKE '김_아';
